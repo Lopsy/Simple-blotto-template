@@ -8,14 +8,15 @@ from random import randint
 
 
 
-def Copier(castles, soldiers):
-    # This is the main program. It takes two inputs: "castles" (the number of
-    # castles) and "soldiers" (the number of soldiers).
+def Copier(weights, soldiers):
+    # This is the main program. It takes two inputs: "weights" (a list of weights for the castles,
+    # like [4,3,3,2,2,2,1,1,1,1]) and "soldiers" (the number of soldiers).
 
     # Here, put the calculations you want to do before the game begins.
 
     opponentsMoves = []
     # We can't copy the opponent on the first move, so make our own strat.
+    castles = len(weights)
     firstMove = [0]*castles # The list [0, 0, ..., 0]
     for i in xrange(soldiers):
         # add a soldier to a random castle
