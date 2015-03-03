@@ -8,6 +8,7 @@ def quickTest(player1, player2, weights, soldiers, iterations):
     """Call like
     quickTest(Copier, CleverStrat, 10, 100, 9000)"""
     totalscore = 0 # positive for P1 winning, negative for P2 winning
+    numberOfWins = 0 # +1 when P1 wins, -1 when P2 wins
 
     P1 = player1(weights, soldiers)
     P2 = player2(weights, soldiers)
@@ -16,10 +17,13 @@ def quickTest(player1, player2, weights, soldiers, iterations):
     move2 = P2.next()
     
     for i in xrange(iterations):
-        totalscore += score(move1, move2, weights, soldiers)
+        result = score(move1, move2, weights, soldiers)
+        totalscore += result
+        if result > 0: numberOfWins += 1
+        if result < 0: numberOfWins -= 1
         move1, move2 = P1.send(move2), P2.send(move1)
 
-    return totalscore
+    return totalscore, numberOfWins
         
 def score(move1, move2, weights, soldiers):
     check(move1, weights, soldiers)
