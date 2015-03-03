@@ -3,6 +3,8 @@ __author__ = "Linus"
 
 from simple import Copier
 
+# UNSTABLE UNTIL WEIGHTS ARE ADDED TO THE OTHER CODEBASE!
+
 
 # This file helps interface simple.py with Matthew's code.
 # strategyOf(Copier) returns a complicated object of type BaseStrategy,
